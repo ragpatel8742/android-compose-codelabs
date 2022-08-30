@@ -233,16 +233,16 @@ private fun AccountsCard(onClickSeeAll: () -> Unit, onAccountClick: (String) -> 
         onClickSeeAll = onClickSeeAll,
         data = UserData.accounts,
         colors = { it.color },
-        values = { it.balance }
-    ) { account ->
-        AccountRow(
-            modifier = Modifier.clickable { onAccountClick(account.name) },
-            name = account.name,
-            number = account.number,
-            amount = account.balance,
-            color = account.color
-        )
-    }
+        values = { it.balance }, row = { account ->
+            AccountRow(
+                modifier = Modifier.clickable { onAccountClick(account.name) },
+                name = account.name,
+                number = account.number,
+                amount = account.balance,
+                color = account.color
+            )
+        }
+    )
 }
 
 /**
